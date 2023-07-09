@@ -1,0 +1,83 @@
+ <style>
+    body{
+      overflow-x: hidden; 
+    }
+  </style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="assests/images/prerequisite.png"
+          height="45"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#if dashboard}}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        {{/if}}
+        {{#if prerequisites}} 
+         <li class="nav-item">
+           <a class="nav-link" href="#">Home</a>
+         </li>
+        {{/if}}
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      {{#if dashboard}}
+       <button type="button" class="btn btn-link  me-2" {{action redirect_to_login}}>
+          Login
+        </button>
+        <button type="button" class="btn btn-primary me-3"{{action redirect_to_signup}}>
+          Sign up 
+        </button>
+       {{/if}}
+       {{#if prerequisites}}
+        <div class="dropdown">
+              <a class="dropdown-toggle d-flex align-items-center hidden-arrow btn btn-light" href="" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
+              aria-expanded="false">
+                    {{email}}
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuAvatar"
+              >
+          
+              <li>
+                  <a class="dropdown-item" href="#" {{action logout}}>Logout</a>
+              </li>
+              </ul>
+         </div>
+       {{/if}}
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+{{yield}}
